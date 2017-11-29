@@ -1,0 +1,20 @@
+Options +FollowSymlinks
+RewriteEngine On
+
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+# Делаем редирект со слешем на без слеша
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} (.+)/$
+RewriteRule ^ %1 [R=301,L]
+# Убираем html
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html
+RewriteCond %{THE_REQUEST} ([^\s]*)\.html(\?[^\s]*)?
+RewriteRule (.*) %1 [R=301,L]
+#404  Страница не найдена
+ErrorDocument 404 https://wnstudio.ru/errors/404
+RewriteCond %{HTTP_HOST} !^wnstudio\.ru$ [NC]
+RewriteCond %{HTTP_HOST} !^www\.wnstudio\.ru$ [NC]
+RewriteRule ^(.*)$ http://wnstudio.ru/$1 [L,R=301]
