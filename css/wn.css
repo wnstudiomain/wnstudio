@@ -60,7 +60,7 @@ a:focus{text-decoration:none;color:#1d9b6c;}
 .navbar-custom .nav li.active{outline:none;}
 .navbar-custom .nav li.active a{background-color:rgba(255, 255, 255, 0.3);}
 .navbar-custom .nav li.active a:hover{color:white;}
-.logo img{width:85%;height:auto}
+.logo img{width:100%;height:auto}
 .logo{display:inline-block;}
 .green{color:#5be36e}
 .navbar-collapse{position:fixed;height:100%;z-index:5;top:0;display:block;background:#fff;-webkit-transition-duration:0.3s;-moz-transition-duration:0.3s;-o-transition-duration:0.3s;}
